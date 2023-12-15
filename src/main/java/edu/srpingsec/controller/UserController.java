@@ -1,6 +1,6 @@
 package edu.srpingsec.controller;
 
-import edu.srpingsec.service.UserSignUpService;
+import edu.srpingsec.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,13 +9,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/sign-up")
-public class UserSignUpController {
+@RequestMapping("/user")
+public class UserController {
     @Autowired
-    UserSignUpService userSignUpService;
+    UserService userService;
 
-    @GetMapping
+    @GetMapping("/log")
+    public String loginMethod(){
+        return "Login Success!";
+    }
+
+    @GetMapping("/register")
     public String singUpMethod(){
         return "Registration Success!";
     }
+
 }
