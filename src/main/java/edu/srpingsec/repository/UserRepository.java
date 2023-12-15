@@ -1,4 +1,7 @@
 package edu.srpingsec.repository;
 
-public interface UserRepository {
+import edu.srpingsec.dao.UserEntity;
+import org.springframework.data.repository.CrudRepository;
+
+public interface UserRepository extends CrudRepository<UserEntity, Long> {
 }

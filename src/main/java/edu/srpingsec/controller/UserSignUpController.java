@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/sign-up")
 public class UserSignUpController {
     @Autowired
-    UserSignUpService userSignInService;
+    UserSignUpService userSignUpService;
 
     @GetMapping
-    public String singupMethod(){
+    public String singUpMethod(){
         return "Registration Success!";
     }
 }
