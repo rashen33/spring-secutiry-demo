@@ -1,9 +1,12 @@
 package edu.srpingsec.dao;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.Set;
 
 @Data
 @Entity
@@ -29,4 +32,7 @@ public class UserEntity {
 
     @Column(nullable = false)
     private String role;
+
+    @OneToMany(mappedBy="user",fetch=FetchType.EAGER) //load the data when loading the userentity data
+    private Set<AuthorityEntity> authorities;
 }
