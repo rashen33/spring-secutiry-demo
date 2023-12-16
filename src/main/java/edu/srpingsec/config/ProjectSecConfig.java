@@ -1,12 +1,9 @@
 package edu.srpingsec.config;
-
-import lombok.NoArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -18,6 +15,7 @@ public class ProjectSecConfig {
         //TODO : Should implement CSRF configurations and CROS
         http.csrf((csrf) -> csrf.disable())
                 .authorizeHttpRequests((requests) -> requests
+//                        .requestMatchers("/user/log").hasAuthority("VIEWACCOUNT") //TODO : This can be implemented when the dashboard is connected
                         .requestMatchers("/user/log").authenticated() //authenticating this path
                         .requestMatchers("/user/register").permitAll()) //allowing access to this without authenticating
                 .formLogin(Customizer.withDefaults())
