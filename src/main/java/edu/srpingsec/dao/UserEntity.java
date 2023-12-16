@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 @Data
 @Entity
 @AllArgsConstructor
@@ -13,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int userId;
+    private Long userId;
 
     @Column(nullable = false ,unique = true)
     private String employeeId;
@@ -29,4 +31,9 @@ public class UserEntity {
 
     @Column(nullable = false)
     private String role;
+
+    @OneToMany(mappedBy = "user",fetch=FetchType.EAGER)
+    private Set<AuthorityEntity> authorities;
+
+
 }
