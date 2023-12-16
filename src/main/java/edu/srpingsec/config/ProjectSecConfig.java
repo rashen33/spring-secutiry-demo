@@ -15,6 +15,7 @@ public class ProjectSecConfig {
 
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
+        //TODO : Should implement CSRF configurations and CROS
         http.csrf((csrf) -> csrf.disable())
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/user/log").authenticated() //authenticating this path
