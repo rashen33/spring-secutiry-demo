@@ -57,15 +57,15 @@ public class UserController {
         return response;
     }
 
-//    @RequestMapping("/user")
-//    public UserEntity getUserDetailsAfterLogin(Authentication authentication) {
-//        List<UserEntity> customers = userRepository.findByEmail(authentication.getName());
-//        if (customers.size() > 0) {
-//            return customers.get(0);
-//        } else {
-//            return null;
-//        }
-//
-//    }
+    @RequestMapping("/user")
+    public UserEntity getUserDetailsAfterLogin(Authentication authentication) {
+        List<UserEntity> customers = userRepository.findByEmail(authentication.getName());
+        if (customers.size() > 0) {
+            return customers.get(0);
+        } else {
+            return null;
+        }
+
+    }
 
 }
