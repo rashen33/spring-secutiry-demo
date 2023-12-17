@@ -16,8 +16,8 @@ public class ProjectSecConfig {
         http.csrf((csrf) -> csrf.disable())
                 .authorizeHttpRequests((requests) -> requests
 //                        .requestMatchers("/user/log").hasAuthority("VIEWACCOUNT") //TODO : This can be implemented when the dashboard is connected
-                        .requestMatchers("/user/log").authenticated() //authenticating this path
-                        .requestMatchers("/user/register").permitAll()) //allowing access to this without authenticating
+                        .requestMatchers("/new-user").authenticated() //authenticating this path
+                        .requestMatchers("/register").permitAll()) //allowing access to this without authenticating
                 .formLogin(Customizer.withDefaults())
                 .httpBasic(Customizer.withDefaults());
         return http.build();

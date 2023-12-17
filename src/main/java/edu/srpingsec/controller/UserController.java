@@ -7,12 +7,14 @@ import edu.srpingsec.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin
-@RequestMapping("/user")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -23,7 +25,7 @@ public class UserController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @GetMapping("/log")
+    @GetMapping("/new-user")
     public String loginMethod(){
         return "Login Success!";
     }
@@ -54,5 +56,16 @@ public class UserController {
         }
         return response;
     }
+
+//    @RequestMapping("/user")
+//    public UserEntity getUserDetailsAfterLogin(Authentication authentication) {
+//        List<UserEntity> customers = userRepository.findByEmail(authentication.getName());
+//        if (customers.size() > 0) {
+//            return customers.get(0);
+//        } else {
+//            return null;
+//        }
+//
+//    }
 
 }
