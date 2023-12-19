@@ -34,7 +34,7 @@ public class JWTTokenGeneratorFilter extends OncePerRequestFilter {
                     .setIssuedAt(new Date())
                     .setExpiration(new Date((new Date()).getTime() + 30000000))
                     .signWith(key).compact(); //Generating the JWT token
-            response.setHeader(SecurityConstants.JWT_HEADER, jwt); //Setting the name of the headder
+            response.setHeader(SecurityConstants.JWT_HEADER, jwt); //Setting the name of the header
         }
 
         filterChain.doFilter(request, response);
